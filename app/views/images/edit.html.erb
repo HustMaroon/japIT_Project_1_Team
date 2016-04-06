@@ -1,0 +1,7 @@
+<h1 class="text-center">Editing Image</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @image %> |
+<%= link_to 'Destroy', @image, method: :delete, data: { confirm: 'Are you sure?' } %>|
+<%= link_to 'Back', images_path %> 

@@ -1,0 +1,14 @@
+<div class="container row">
+	<div class="col-sm-3">
+		<div class="container col-sm-3">profile</div></br>
+		<div class="container col-sm-3">
+			<button type="button" class="btn btn-primary">Change profile</button>
+		</div>
+	</div>
+	<div class="col-sm-9 box-shadow--8dp">
+	<% @images_of_user.each do |image| %>
+		<%= link_to (image_tag image.file.url ,class: "setsize-image"), image_path(image) %><br/><br/>
+	
+	<%end%>
+	</div>
+</div>

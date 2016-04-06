@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  resources :images
   root 'static_pages#home'
+  get 'personal_page' => 'static_pages#personal_page'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

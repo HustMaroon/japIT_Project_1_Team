@@ -1,2 +1,11 @@
-<h1>StaticPages</h1>
-<p>Home</p>
+<div class="container row">
+	<div class="col-sm-9 box-shadow--8dp">
+	<% @images.each do |image| %>
+		<%= link_to (image_tag image.file.url ,class: "setsize-image img-thumbnail box-shadow--4dp"), image_path(image) %>
+	<%end%>
+	</div>
+	<div class="col-sm-3 box-shadow--8dp">
+		danh cho cac anh co so luot vote cao
+	</div>
+</div>
+

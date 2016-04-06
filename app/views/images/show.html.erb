@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <h3 class="text-center">Show Image</h3>
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-sm-4" >
+        <strong>User:</strong>
+        <%= @image.user.name %>
+      </div>
+      <div class="col-sm-4" >
+        <strong>Title:</strong>
+        <%= @image.title %>
+      </div>
+      <div class="col-sm-4" >
+        <strong>Created at:</strong>
+        <%= @image.created_at %>
+      </div>
+    </div>
+    <%= image_tag @image.file,class: "img-thumbnail" %>
+    <%= link_to 'Edit', edit_image_path(@image) %> |
+    <%= link_to 'Back', images_path %>
+  </div>
+</div>
+
