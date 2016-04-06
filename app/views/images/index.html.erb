@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Images</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Title</th>
+      <th>String</th>
+      <th>File</th>
+      <th>String</th>
+      <th>Created at</th>
+      <th>Datetime</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @images.each do |image| %>
+      <tr>
+        <td><%= image.user_id %></td>
+        <td><%= image.title %></td>
+        <td><%= image.string %></td>
+        <td><%= image.file %></td>
+        <td><%= image.string %></td>
+        <td><%= image.created_at %></td>
+        <td><%= image.datetime %></td>
+        <td><%= link_to 'Show', image %></td>
+        <td><%= link_to 'Edit', edit_image_path(image) %></td>
+        <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Image', new_image_path %>

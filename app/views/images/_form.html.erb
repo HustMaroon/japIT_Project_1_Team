@@ -1,0 +1,42 @@
+<%= form_for(@image ,{multipart: true}) do |f| %>
+  <% if @image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+      <ul>
+      <% @image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div>
+<div class="row">
+  <div class="col-sm-8 well vitri-upanh box-shadow--4dp">
+  
+    <div class="field">
+      <%= f.label 'title' %></br>
+      <%= f.text_field :title,class: 'form-control' %>
+    </div>
+    <img id="img_prev" src="#" class="img-thumbnail hidden"/> <br/>
+    
+    <% if @image.file.nil? %>
+    <div >
+      <img id="img_prev" src="#" class="img-thumbnail hidden"/> <br/>
+    </div>
+    <%else%>
+    <%= image_tag @image.file,class: "img-thumbnail" %>
+    <%end%>
+    
+   <br/>
+    <div class="field">
+      <%= f.label 'choose file uploader' %></br>
+      <%= f.file_field :file ,id: "img_prev2" %>
+    </div>
+    
+      <%= f.submit "upload image",class: "btn btn-primary btn-block"  %>
+    
+  </div>
+    
+</div>
+<% end %>
