@@ -1,3 +1,4 @@
+<div id="image-<%= @image.id %>">
 <p id="notice"><%= notice %></p>
 <div class="container">
   <h3 class="text-center">Show Image</h3>
@@ -19,6 +20,14 @@
     <%= image_tag @image.file,class: "img-thumbnail" %>
     <%= link_to 'Edit', edit_image_path(@image) %> |
     <%= link_to 'Back', images_path %>
+  </div>
+  <div id="comments">
+  <%if @image.comments.any?%>
+  <%= render @comments%>
+  <%end%>
+  </div>
+  <div class="comment_form">
+  <%= render 'shared/comment_form', image: @image %>
   </div>
 </div>
 
