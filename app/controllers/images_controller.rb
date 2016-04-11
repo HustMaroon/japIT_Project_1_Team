@@ -10,6 +10,10 @@ class ImagesController < ApplicationController
   # GET /images/1
   # GET /images/1.json
   def show
+    image = Image.find(params[:id])
+    @comments = image.comments.all
+    @comment = image.comments.build
+    @current_user = current_user
   end
 
   # GET /images/new

@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  resources :images
+  resources :images do
+    resources :comments
+  end
+  resources :comments
   root 'static_pages#home'
   get 'personal_page' => 'static_pages#personal_page'
 
   devise_for :users
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
