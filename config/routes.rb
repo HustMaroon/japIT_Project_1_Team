@@ -1,13 +1,25 @@
 Rails.application.routes.draw do
+    resources :relationships,       only: [:create, :destroy]
   resources :images do
     resources :comments
   end
+  devise_for :users, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
   resources :comments
   root 'static_pages#home'
   get 'personal_page' => 'static_pages#personal_page'
+  get 'users/:id' => 'users#show' 
 
-  devise_for :users
-  resources :users
+  #devise_for :users
+  
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
