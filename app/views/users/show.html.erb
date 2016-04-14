@@ -1,13 +1,16 @@
 <div class="container row">
 	<div class="col-sm-3">
-
 		<div class="container col-sm-3">profile</div></br>
 		<div class="container col-sm-3">
-		<%= link_to (image_tag @avatar.avatar ,class: "avatar-size"), edit_user_registration_path %>
-		</div>
-		
+		<% if @user.id == current_user.id %>
+			<%= link_to (image_tag @user.avatar ,class: "avatar-size"), edit_user_registration_path %>
+		<%else%>
+			<%= image_tag @user.avatar ,class: "avatar-size"%>
+			<%= render 'follow_form' if user_signed_in? %>
+		<%end%>
+		</div>	
 	</div>
-	<div class="col-sm-9">
+	<div class="col-sm-9 box-shadow--8dp">
 	<% @images_of_user.each do |image| %>
 		<%= link_to (image_tag image.file.url ,class: "setsize-image"), image_path(image) %><br/><br/>
 	
