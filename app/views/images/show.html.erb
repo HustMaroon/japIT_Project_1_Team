@@ -21,6 +21,9 @@
     <%= link_to 'Edit', edit_image_path(@image) %> |
     <%= link_to 'Back', images_path %>
   </div>
+  <div id="likes">
+  <%=render 'like_form'%>
+  </div>
   <div id="comments">
   <%if @image.comments.any?%>
   <%= render @comments%>

@@ -1,0 +1,7 @@
+<%= form_for([image, image.likes.build], remote: true) do |f| %>
+    <%= f.hidden_field :user_id %>
+    <div>
+    <%= image.likes.count %> likes
+    </div>
+    <button class="btn btn-primary" type="submit">Like</button>
+<% end %>

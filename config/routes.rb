@@ -2,9 +2,11 @@ Rails.application.routes.draw do
     resources :relationships,       only: [:create, :destroy]
   resources :images do
     resources :comments
+    resources :likes
   end
   devise_for :users, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
   resources :comments
+  resources :likes
   root 'static_pages#home'
   get 'personal_page' => 'static_pages#personal_page'
   get 'users/:id' => 'users#show' 
